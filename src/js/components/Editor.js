@@ -7,7 +7,7 @@ class Editor extends Component {
     super(props);
     this.state = {
       markdown: this.props.placeholder,
-      change: this.props.handleChange
+      change: this.props.changeHandler
     }
   }
 
