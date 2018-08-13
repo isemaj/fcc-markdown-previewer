@@ -1,7 +1,8 @@
-import '../../css/App.scss'
+import '../../css/_app.scss'
 import React, { Component, PropTypes } from 'react'
-import Editor from './Editor';
-import Preview from './Preview';
+import Editor from './Editor'
+import Info from './Info'
+import Preview from './Preview'
 
 class App extends Component {
   constructor(props) {
@@ -12,28 +13,23 @@ class App extends Component {
     this.changeHandler = this.changeHandler.bind(this);
   }
 
-  changeHandler(e) {
-  e.preventDefault();
-  this.setState({
-    markdown: e.target.value
+  changeHandler(markdown) {
+    this.setState({
+      markdown
     })
   }
 
   render() {
     return(
-      <div id="wrapper">
-        <Editor
-          placeholder={this.state.markdown}
-          changeHandler={this.changeHandler}
-          />
-        <Preview
-          placeholder={this.state.markdown}
-          />
+      <div className="container">
+        <Editor changeHandler={this.changeHandler} markdown={this.state.markdown}/>
+        <Info markdown={this.state.markdown}/>
+        <Preview markdown={this.state.markdown}/>
       </div>
     );
   }
-
 }
+
 const defaultMark =
 `# Welcome to my React Markdown Previewer!
 
