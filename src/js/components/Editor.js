@@ -1,31 +1,31 @@
-import '../../css/Editor.scss'
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Editor extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      markdown: this.props.placeholder,
-      change: this.props.changeHandler
-    }
+    this.update = this.update.bind(this);
+  }
+
+  update(e) {
+    e.preventDefault();
+    this.props.changeHandler(e.target.value)
   }
 
   render() {
-    return(
-      <div id="left">
-        <textarea
-          id='editor'
-          onChange={this.state.change}
-          value={this.state.markdown}
-          />
-      </div>
+    const markdown = this.props.markdown;
+    const update = this.update;
+  
+    return ( 
+    <div className = "left-pane" >
+      <textarea 
+        id = "editor"
+        onChange = { update } 
+        value = { markdown }
+      /> 
+      </div >
     );
   }
 }
-
-// Editor.propTypes = {
-//   markdown: PropTypes.string.isRequired
-// }
 
 export default Editor;

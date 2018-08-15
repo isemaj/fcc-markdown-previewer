@@ -1,4 +1,3 @@
-import '../../css/Preview.scss'
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import showdown from 'showdown';
@@ -7,22 +6,24 @@ class Preview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      converter: new showdown.Converter(),
-      text: this.props.placeholder,
+      converter: new showdown.Converter({
+        tables: 'true',
+        openLinksInNewWindow: 'true',
+        simpleLineBreaks: 'true'
+      })
     }
-
     this.createMarkup = this.createMarkup.bind(this);
   }
 
   createMarkup() {
-    return {__html: this.state.converter.makeHtml(this.state.text)}
+    return {__html: this.state.converter.makeHtml(this.props.markdown)}
   }
 
   render() {
-    this.state.converter.setOption('tables', 'true');
+    const renderHTML = this.createMarkup();
     return (
-      <div id="right">
-        <p dangerouslySetInnerHTML={this.createMarkup()}></p>
+      <div className="right-pane">
+        <p id="preview" dangerouslySetInnerHTML={renderHTML}></p>
       </div>
     );
   }

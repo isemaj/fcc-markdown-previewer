@@ -1,7 +1,5 @@
-import '../../css/_app.scss'
 import React, { Component, PropTypes } from 'react'
 import Editor from './Editor'
-import Info from './Info'
 import Preview from './Preview'
 
 class App extends Component {
@@ -23,7 +21,6 @@ class App extends Component {
     return(
       <div className="container">
         <Editor changeHandler={this.changeHandler} markdown={this.state.markdown}/>
-        <Info markdown={this.state.markdown}/>
         <Preview markdown={this.state.markdown}/>
       </div>
     );
