@@ -1,0 +1,31 @@
+@import 'shared_variables';
+
+.right-pane {
+    grid-area: preview;
+    background-color: transparent;
+    color: white;
+    overflow-y: auto;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    width: 100%;
+    heigth: 100%;
+    padding: 35px; 
+}
+
+#preview {
+    margin: 0;
+    font: $font-ssp;
+}
+
+p>a {
+    color: #4cedf9;
+}
+
+table {
+    border-collapse: collapse;
+    color: white;
+}
+
+td,
+th {
+    border: 2px solid white;
+}
