@@ -1,0 +1,19 @@
+@import 'shared_variables';
+
+.left-pane {
+    grid-area: editor;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    height: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    resize: none;
+    border: none;
+    outline: none;
+    font: $font-roboto;
+    color: $color1;
+    padding: 20px;
+}
