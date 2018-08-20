@@ -1,6 +1,5 @@
 before_script: 
-  - apt update && apt install 
-  - apt-install nodejs npm
+  - apt-update && apt-install -y -qq nodejs npm 
   - nodejs -v 
   - npm -v
   - npm install npm@latest -g 
