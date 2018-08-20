@@ -1,0 +1,12 @@
+before_script: 
+  - apt update && apt install 
+  - apt install nodejs npm
+  - nodejs -v 
+  - npm -v
+  - npm install npm@latest -g 
+  - npm -v
+  - npm install
+
+rdev:
+  script:
+    - npm run dev
