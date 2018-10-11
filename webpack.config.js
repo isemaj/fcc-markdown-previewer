@@ -4,22 +4,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
+  target: "web",
   entry: "./src/js/index.js",
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'
   },
-  devtool: 'inline-source-map',
   module: {
     rules: [
       {
         test: /\.pug$/,
-        use: [
-          {
-            loader: 'pug-loader'
-          }
-        ]
+        loader: 'pug-loader'
       },
       {
         test: /\.scss$/,
@@ -32,21 +28,12 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              'env',
-              'react'
-            ]
-          }
-        }
+        loader: 'babel-loader',
       },
     ]
   },
-  target: "web",
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['public']),
     new HtmlWebpackPlugin({
       title: 'Markdown Previewer',
       hash: true,
